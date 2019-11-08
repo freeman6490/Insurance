@@ -3,12 +3,12 @@ public class FreemanInsurance {
 	public static void printWelcome() {
 		System.out.println("*************************************");
 		System.out.println("Insurance Score Card");
-		System.out.println("This app scores a potential customer on");
-		System.out.println(" various health attributes; blood pressure ");
-		System.out.println(", age, height, weight, and family history of ");
+		System.out.println("This app scores a potential customer on ");
+		System.out.println("various health attributes; blood pressure,  ");
+		System.out.println("age, height, weight, and family history of ");
 		System.out.println("disease. It writes each member's insurance ");
-		System.out.println("grade to a JSON file so they can be easily");
-		System.out.println(" shared on a web based data exchange.");
+		System.out.println("grade to a JSON file so they can be easily ");
+		System.out.println("shared on a web based data exchange.");
 		System.out.println("*************************************");
 	}
 	public static void printMenu() {
@@ -26,24 +26,25 @@ public class FreemanInsurance {
 		Scanner sc = new Scanner (System.in);
 		printWelcome();
 		int choice;
-		do {
-			System.out.println("Enter name of file: ");
-			String fileName = sc.nextLine();
-			printMenu();
-			choice = sc.nextInt();
-			if (choice == 1) {
-				
-			} else if (choice == 2) {
-				
-			} else if (choice == 3) {
-				
-			} else if (choice == 4) {
-				
-			} else if (choice == 5) {
-				
-			} else if (choice == 6) {
-				
+		System.out.println("Enter name of file: ");
+		String fileName = sc.nextLine();
+		CustomerReader.readCustomersFromTextFile(fileName);
+				do {
+					printMenu();
+					choice = sc.nextInt();
+					if (choice == 1) {
+						System.out.println(CustomerReader.readCustomersFromTextFile(fileName));
+					} else if (choice == 2) {
+						
+					} else if (choice == 3) {
+						
+					} else if (choice == 4) {
+						
+					} else if (choice == 5) {
+						
+					} else if (choice == 6) {
+						
+					}
+				} while (choice != 7);
 			}
-		} while (choice != 7);
 	}
-}

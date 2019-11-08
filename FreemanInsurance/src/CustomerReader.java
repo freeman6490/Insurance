@@ -8,26 +8,19 @@ public class CustomerReader {
 			String line, firstName, lastName, cancer, diabetes, alzheimers;
 			int age, height, weight, sysBP, diaBP;
 			Customer customer;
-			String [] customerParts;
 			while (fsc.hasNextLine()) {			
-				firstName = fsc.next();
+				firstName = fsc.next().trim();
 				lastName = fsc.next().trim();
 				age = fsc.nextInt();
-				fsc.nextLine();
 				height = fsc.nextInt();
-				fsc.nextLine();
 				weight = fsc.nextInt();
-				fsc.nextLine();
 				sysBP = fsc.nextInt();
-				fsc.nextLine();
 				diaBP = fsc.nextInt();
-				fsc.nextLine();
 				cancer = fsc.next().trim();
 				diabetes = fsc.next().trim();
 				alzheimers = fsc.next().trim();
 				customer = new Customer(firstName, lastName, age, height, weight, sysBP, diaBP, cancer, diabetes, alzheimers);
 				result.add(customer);
-				System.out.println("here");
 				/*
 				line = fsc.nextLine().trim();
 			    customerParts = line.split("\t");
@@ -47,7 +40,7 @@ public class CustomerReader {
 			fsc.close();
 			return result;
 		} catch (Exception ex) {
-			System.out.println("no here");
+			ex.printStackTrace();
 			return null;
 		}
 	}

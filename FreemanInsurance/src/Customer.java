@@ -2,7 +2,8 @@ import java.io.*;
 import java.util.*;
 public class Customer {
 	private String firstName, lastName, cancer, diabetes, alzheimers;
-	private int age, heightInInches, weightInPounds, sysBP, diaBP;
+	private int age, height, weight, sysBP, diaBP;
+	private ArrayList<Customer> result;
 	public String getFirstName() {
 		return firstName;
 	}
@@ -27,11 +28,11 @@ public class Customer {
 	public void setCancer(String cancer) {
 		this.cancer = cancer;
 	}
-	public int getHeightInInches() {
-		return heightInInches;
+	public int getHeight() {
+		return height;
 	}
-	public void setHeightInInches(int heightInInches) {
-		this.heightInInches = heightInInches;
+	public void setHeight(int height) {
+		this.height = height;
 	}
 	public String getAlzheimers() {
 		return alzheimers;
@@ -45,11 +46,11 @@ public class Customer {
 	public void setDiabetes(String diabetes) {
 		this.diabetes = diabetes;
 	}
-	public int getWeightInPounds() {
-		return weightInPounds;
+	public int getWeight() {
+		return weight;
 	}
-	public void setWeightInPounds(int weightInPounds) {
-		this.weightInPounds = weightInPounds;
+	public void setWeight(int weight) {
+		this.weight = weight;
 	}
 	public int getSysBP() {
 		return sysBP;
@@ -63,17 +64,21 @@ public class Customer {
 	public void setDiaBP(int diaBP) {
 		this.diaBP = diaBP;
 	}
-	public Customer (String firstName, String lastName, int age, int heightInInches,
-			int weightInPounds, int sysBP, int diaBP, String cancer, String diabetes, String alzheimers) {
+	public Customer (String firstName, String lastName, int age, int height,
+			int weight, int sysBP, int diaBP, String cancer, String diabetes, String alzheimers) {
 		setFirstName(firstName);
 		setLastName(lastName);
 		setAge(age);
-		setHeightInInches(heightInInches);
-		setWeightInPounds(weightInPounds);
+		setHeight(height);
+		setWeight(weight);
 		setSysBP(sysBP);
 		setDiaBP(diaBP);
 		setCancer(cancer);
 		setDiabetes(diabetes);
 		setAlzheimers(alzheimers);
+	}
+	@Override
+	public String toString() {
+		return String.format("%s %s %s %s %s %s %s %s %s %s\n", firstName, lastName, age, height, weight, sysBP, diaBP, cancer, diabetes, alzheimers);
 	}
 }
