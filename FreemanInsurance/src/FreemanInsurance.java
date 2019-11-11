@@ -26,7 +26,7 @@ public class FreemanInsurance {
 	public static void main (String [] args) {
 		Scanner sc = new Scanner (System.in);
 		printWelcome();
-		int choice;
+		int choice, choice2;
 		System.out.println("Enter name of file: ");
 		String fileName = sc.nextLine();
 		ArrayList<Customer> result = CustomerReader.readCustomersFromTextFile(fileName);
@@ -40,13 +40,36 @@ public class FreemanInsurance {
 						CustomerReader.addMember(result);
 						System.out.println("They were added.");
 					} else if (choice == 3) {
-						
+						System.out.println("Enter your choice: ");
+						System.out.println("1. Text");
+						System.out.println("2. Binary");
+						System.out.println("3. XML");
+						choice2 = sc.nextInt();
+						if (choice2 == 1) {
+							System.out.println("Enter text file name");
+							fileName = sc.nextLine();
+							CustomerWriter.writeCustomersToTextFile(fileName, result);
+							System.out.println("Members were written successfully.");
+						} else if (choice2 == 2) {
+							System.out.println("Enter binary file name");
+							fileName = sc.nextLine();
+							CustomerWriter.writeCustomersToBinary(fileName, result);
+							System.out.println("Members were written successfully.");
+						} else if (choice2 == 3) {
+							System.out.println("Enter XML file name");
+							fileName = sc.nextLine();
+							CustomerWriter.writeCustomersToXML(fileName, result);
+							System.out.println("Members were written successfully.");
+						}
 					} else if (choice == 4) {
 						
 					} else if (choice == 5) {
 						
 					} else if (choice == 6) {
-						
+						System.out.println("Enter name of JSON file");
+						fileName = sc.nextLine();
+						CustomerWriter.writeCustomersToJSON(fileName, result);
+						System.out.println("Members were written successfully.");
 					}
 				} while (choice != 7);
 			}
