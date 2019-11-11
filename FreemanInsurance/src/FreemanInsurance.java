@@ -1,4 +1,4 @@
-import java.util.ArrayList;
+  import java.util.ArrayList;
 import java.util.Scanner;
 public class FreemanInsurance {
 	public static void printWelcome() {
@@ -71,10 +71,10 @@ public class FreemanInsurance {
 							}
 						}
 					} else if (choice == 4) {
-						System.out.println("Enter your choice: ");
 						System.out.println("1. Text");
 						System.out.println("2. Binary");
 						System.out.println("3. XML");
+						System.out.println("Enter your choice: ");
 						choice3 = sc.nextInt();
 						if (choice3 == 1) {
 							System.out.println("Enter file name");
@@ -100,4 +100,3 @@ public class FreemanInsurance {
 				} while (choice != 7);
 			}
 	}
-

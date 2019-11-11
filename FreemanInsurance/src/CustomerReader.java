@@ -6,11 +6,11 @@ public class CustomerReader {
 		try {
 			ArrayList<Customer> result = new ArrayList<Customer>();
 			Scanner fsc = new Scanner(new File(fileName));
-			String line, firstName, lastName, cancer, diabetes, alzheimers;
+			String firstName, lastName, cancer, diabetes, alzheimers;
 			int count, age, height, weight, sysBP, diaBP;
 			Customer customer;
 			count = 0;
-			while (fsc.hasNextLine()) {			
+			while (fsc.hasNextLine()) {	
 				firstName = fsc.next().trim();
 				lastName = fsc.next().trim();
 				age = fsc.nextInt();
@@ -33,9 +33,9 @@ public class CustomerReader {
 			return null;
 		}
 	}
-	public static ArrayList<Customer> readCustomerFromBinary(String fileName){
+	public static ArrayList<Customer> readCustomerFromBinary(String fileName2){
 		try {
-			ObjectInputStream ois = new ObjectInputStream(new FileInputStream(fileName));
+			ObjectInputStream ois = new ObjectInputStream(new FileInputStream(fileName2));
 			ArrayList<Customer> newResult = (ArrayList<Customer>)ois.readObject();
 			ois.close();
 			return newResult;
@@ -43,9 +43,9 @@ public class CustomerReader {
 			return null;
 		}
 	}
-	public static ArrayList<Customer> readCustomerFromXML(String fileName){
+	public static ArrayList<Customer> readCustomerFromXML(String fileName3){
 		try {
-			XMLDecoder dec = new XMLDecoder(new BufferedInputStream(new FileInputStream(fileName)));
+			XMLDecoder dec = new XMLDecoder(new BufferedInputStream(new FileInputStream(fileName3)));
 			ArrayList<Customer> newResult = (ArrayList<Customer>)dec.readObject();
 			dec.close();
 			return newResult;
