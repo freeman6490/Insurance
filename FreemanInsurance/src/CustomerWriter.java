@@ -43,19 +43,20 @@ public class CustomerWriter {
 			for (Customer cus : result) {
 				cusObj = new JSONObject();
 				cusObj.put("first name", cus.getFirstName());
-				cusObj.put("first name", cus.getLastName());
-				cusObj.put("first name", cus.getAge());
-				cusObj.put("first name", cus.getHeight());
-				cusObj.put("first name", cus.getWeight());
-				cusObj.put("first name", cus.getSysBP());
-				cusObj.put("first name", cus.getDiaBP());
-				cusObj.put("first name", cus.getCancer());
-				cusObj.put("first name", cus.getDiabetes());
-				cusObj.put("first name", cus.getAlzheimers());
+				cusObj.put("last name", cus.getLastName());
+				cusObj.put("age", cus.getAge());
+				cusObj.put("height", cus.getHeight());
+				cusObj.put("weight", cus.getWeight());
+				cusObj.put("sys BP", cus.getSysBP());
+				cusObj.put("dia BP", cus.getDiaBP());
+				cusObj.put("cancer", cus.getCancer());
+				cusObj.put("diabetes", cus.getDiabetes());
+				cusObj.put("alzheimers", cus.getAlzheimers());
 				array.add(cusObj);
 			}
 			JSONObject outer = new JSONObject();
 			outer.put("customers", array);
+			
 			pw.println(outer.toJSONString());
 			pw.close();
 			return true;
