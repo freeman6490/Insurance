@@ -64,6 +64,19 @@ public class Customer {
 	public void setDiaBP(int diaBP) {
 		this.diaBP = diaBP;
 	}
+	@SuppressWarnings("null")
+	public Customer() {
+		firstName = "";
+		lastName = "";
+		age = (Integer) null;
+		height = (Integer) null;
+		weight = (Integer) null;
+		sysBP = (Integer) null;
+		diaBP = (Integer) null;
+		cancer = "";
+		diabetes = "";
+		alzheimers = "";
+	}
 	public Customer (String firstName, String lastName, int age, int height,
 			int weight, int sysBP, int diaBP, String cancer, String diabetes, String alzheimers) {
 		setFirstName(firstName);

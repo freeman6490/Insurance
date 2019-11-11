@@ -55,8 +55,7 @@ public class CustomerWriter {
 				array.add(cusObj);
 			}
 			JSONObject outer = new JSONObject();
-			outer.put("customers", array);
-			
+			outer.put("customers", array);			
 			pw.println(outer.toJSONString());
 			pw.close();
 			return true;
