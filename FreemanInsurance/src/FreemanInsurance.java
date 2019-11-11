@@ -87,6 +87,7 @@ public class FreemanInsurance {
 							} else if (choice3 == 3) {
 							System.out.println("Enter file name");
 							fileName = sc.nextLine();
+							System.out.println(CustomerReader.readCustomerFromXML(fileName));
 						}
 					} else if (choice == 5) {
 						
