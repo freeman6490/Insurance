@@ -21,21 +21,6 @@ public class CustomerReader {
 				alzheimers = fsc.next().trim();
 				customer = new Customer(firstName, lastName, age, height, weight, sysBP, diaBP, cancer, diabetes, alzheimers);
 				result.add(customer);
-				/*
-				line = fsc.nextLine().trim();
-			    customerParts = line.split("\t");
-			    firstName = customerParts[0].trim();
-			    lastName = customerParts[1].trim();
-			    age = Integer.parseInt(customerParts[2].trim());
-			    height = Integer.parseInt(customerParts[3].trim());
-			    weight = Integer.parseInt(customerParts[4].trim());
-			    sysBP = Integer.parseInt(customerParts[5].trim());
-			    diaBP = Integer.parseInt(customerParts[6].trim());
-			    cancer = customerParts[7].trim();
-			    diabetes = customerParts[8].trim();
-			    alzheimers = customerParts[9].trim();
-			    result.add(new Customer(firstName, lastName, age, height, weight, sysBP, diaBP, cancer, diabetes, alzheimers));
-			    */
 			}
 			fsc.close();
 			return result;
@@ -44,4 +29,29 @@ public class CustomerReader {
 			return null;
 		}
 	}
+		public static void addMember(ArrayList<Customer> result) {
+			Scanner sc = new Scanner (System.in);
+			System.out.println("Enter first name: ");
+			String newFirstName = sc.next().trim();
+			System.out.println("Enter last name: ");
+			String newLastName = sc.next().trim();
+			System.out.println("Enter age: ");
+			int newAge = sc.nextInt();
+			System.out.println("Enter height: ");
+			int newHeight = sc.nextInt();
+			System.out.println("Enter weight: ");
+			int newWeight = sc.nextInt();
+			System.out.println("Enter sys BP: ");
+			int newSysBP = sc.nextInt();
+			System.out.println("Enter dia BP");
+			int newDiaBP = sc.nextInt();
+			System.out.println("Cancer? ");;
+			String newCancer = sc.next().trim();
+			System.out.println("Diabetes? ");
+			String newDiabetes = sc.next().trim();
+			System.out.println("Alzheimers? ");
+			String newAlz = sc.next().trim();
+			result.add(new Customer(newFirstName, newLastName, newAge, newHeight, newWeight, newSysBP, newDiaBP, newCancer, newDiabetes, newAlz));
+		}
+	
 }

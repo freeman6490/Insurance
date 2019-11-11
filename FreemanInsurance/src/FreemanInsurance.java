@@ -17,7 +17,7 @@ public class FreemanInsurance {
 		System.out.println("2. Add a new member");
 		System.out.println("3. Save members");
 		System.out.println("4. Load members");
-		System.out.println("5. Asses members");
+		System.out.println("5. Assess members");
 		System.out.println("6. Save assesments as JSON");
 		System.out.println("7. Quit");
 		System.out.println("Enter your choice: ");
@@ -28,14 +28,15 @@ public class FreemanInsurance {
 		int choice;
 		System.out.println("Enter name of file: ");
 		String fileName = sc.nextLine();
-		CustomerReader.readCustomersFromTextFile(fileName);
+		String newMember;
 				do {
 					printMenu();
 					choice = sc.nextInt();
 					if (choice == 1) {
 						System.out.println(CustomerReader.readCustomersFromTextFile(fileName));
 					} else if (choice == 2) {
-						
+						CustomerReader.addMember(result);
+						System.out.println("They were added.");
 					} else if (choice == 3) {
 						
 					} else if (choice == 4) {
