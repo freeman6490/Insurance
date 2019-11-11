@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Scanner;
 public class FreemanInsurance {
 	public static void printWelcome() {
@@ -28,6 +29,7 @@ public class FreemanInsurance {
 		int choice;
 		System.out.println("Enter name of file: ");
 		String fileName = sc.nextLine();
+		ArrayList<Customer> result = CustomerReader.readCustomersFromTextFile(fileName);
 		String newMember;
 				do {
 					printMenu();
