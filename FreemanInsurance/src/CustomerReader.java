@@ -6,8 +6,9 @@ public class CustomerReader {
 			ArrayList<Customer> result = new ArrayList<Customer>();
 			Scanner fsc = new Scanner(new File(fileName));
 			String line, firstName, lastName, cancer, diabetes, alzheimers;
-			int age, height, weight, sysBP, diaBP;
+			int count, age, height, weight, sysBP, diaBP;
 			Customer customer;
+			count = 0;
 			while (fsc.hasNextLine()) {			
 				firstName = fsc.next().trim();
 				lastName = fsc.next().trim();
@@ -21,8 +22,10 @@ public class CustomerReader {
 				alzheimers = fsc.next().trim();
 				customer = new Customer(firstName, lastName, age, height, weight, sysBP, diaBP, cancer, diabetes, alzheimers);
 				result.add(customer);
+				count = count + 1;
 			}
 			fsc.close();
+			System.out.printf("%d members were read.\n",count);
 			return result;
 		} catch (Exception ex) {
 			ex.printStackTrace();
