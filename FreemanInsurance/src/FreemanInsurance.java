@@ -46,30 +46,22 @@ public class FreemanInsurance {
 						System.out.println("3. XML");
 						choice2 = sc.nextInt();
 						if (choice2 == 1) {
-							System.out.println("Enter text file name");
-							fileName2 = sc.nextLine();
-							if (CustomerWriter.writeCustomersToTextFile(fileName, result)) {
+							System.out.println("Enter file name");
+							fileName = sc.next();
+							CustomerWriter.writeCustomersToTextFile(fileName, result);
 								System.out.println("Members were written successfully.");
-							} else {
-							System.out.println("Could not write customers to text file.");
-							}
 						} else if (choice2 == 2) {
-							System.out.println("Enter binary file name");
-							fileName2 = sc.nextLine();
-							if (CustomerWriter.writeCustomersToBinary(fileName, result)) {
+							System.out.println("Enter file name");
+							fileName = sc.next();
+							CustomerWriter.writeCustomersToBinary(fileName, result);
 								System.out.println("Members were written successfully.");
-							} else {
-								System.out.println("Could not write customers to binary file.");
-							}
+							
 						} else if (choice2 == 3) {
-							System.out.println("Enter XML file name");
-							fileName2 = sc.nextLine();
-							if (CustomerWriter.writeCustomersToXML(fileName, result)) {
-								System.out.println("Members were written successfully.");
-							} else {
-							System.out.println("Could not write customers to XML file.");
+							System.out.println("Enter file name");
+							fileName = sc.next();
+							CustomerWriter.writeCustomersToXML(fileName, result);
+							System.out.println("Members were written successfully.");
 							}
-						}
 					} else if (choice == 4) {
 						System.out.println("1. Text");
 						System.out.println("2. Binary");
@@ -78,24 +70,23 @@ public class FreemanInsurance {
 						choice3 = sc.nextInt();
 						if (choice3 == 1) {
 							System.out.println("Enter file name");
-							fileName = sc.nextLine();
+							fileName = sc.next();
 							System.out.println(CustomerReader.readCustomersFromTextFile(fileName)); 
 							} else if (choice3 == 2) {
-							System.out.println("Enter file name");
-							fileName = sc.nextLine();
+								System.out.println("Enter file name");
+								fileName = sc.next();
 							System.out.println(CustomerReader.readCustomerFromBinary(fileName));
 							} else if (choice3 == 3) {
-							System.out.println("Enter file name");
-							fileName = sc.nextLine();
+								System.out.println("Enter file name");
+								fileName = sc.next();
 							System.out.println(CustomerReader.readCustomerFromXML(fileName));
 						}
 					} else if (choice == 5) {
 						
 					} else if (choice == 6) {
 						System.out.println("Enter name of JSON file");
-						fileName = sc.nextLine();
+						fileName = sc.next();
 						CustomerWriter.writeCustomersToJSON(fileName, result);
-						System.out.println("Members were written successfully.");
 					}
 				} while (choice != 7);
 			}
