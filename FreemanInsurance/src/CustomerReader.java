@@ -1,3 +1,4 @@
+import java.beans.XMLDecoder;
 import java.io.*;
 import java.util.*;
 public class CustomerReader {
@@ -29,6 +30,26 @@ public class CustomerReader {
 			return result;
 		} catch (Exception ex) {
 			ex.printStackTrace();
+			return null;
+		}
+	}
+	public static ArrayList<Customer> readCustomerFromBinary(String fileName){
+		try {
+			ObjectInputStream ois = new ObjectInputStream(new FileInputStream(fileName));
+			ArrayList<Customer> newResult = (ArrayList<Customer>)ois.readObject();
+			ois.close();
+			return newResult;
+		} catch (Exception ex) {
+			return null;
+		}
+	}
+	public static ArrayList<Customer> readCustomerFromXML(String fileName){
+		try {
+			XMLDecoder dec = new XMLDecoder(new BufferedInputStream(new FileInputStream(fileName)));
+			ArrayList<Customer> newResult = (ArrayList<Customer>)dec.readObject();
+			dec.close();
+			return newResult;
+		} catch (Exception ex) {
 			return null;
 		}
 	}
