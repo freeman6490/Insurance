@@ -1,5 +1,6 @@
 import java.io.*;
 import java.util.*;
+@SuppressWarnings("unused")
 public class Customer {
 	private String firstName, lastName, cancer, diabetes, alzheimers;
 	private int age, height, weight, sysBP, diaBP;

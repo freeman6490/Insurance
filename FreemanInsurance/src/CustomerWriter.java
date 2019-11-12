@@ -35,6 +35,7 @@ public class CustomerWriter {
 			return false;
 		}
 	}
+	@SuppressWarnings("unchecked")
 	public static boolean writeCustomersToJSON(String fileName, ArrayList<Customer> result) {
 		try {
 			PrintWriter pw = new PrintWriter(new BufferedWriter(new FileWriter(fileName)));

@@ -24,9 +24,11 @@ public class FreemanInsurance {
 		System.out.println("Enter your choice: ");
 	}
 	public static void main (String [] args) {
+		@SuppressWarnings("resource")
 		Scanner sc = new Scanner (System.in);
 		printWelcome();
 		int choice, choice2, choice3;
+		@SuppressWarnings("unused")
 		String fileName2;
 		System.out.println("Enter name of file: ");
 		String fileName = sc.nextLine();
