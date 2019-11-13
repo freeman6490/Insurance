@@ -33,22 +33,22 @@ public class CustomerReader {
 			return null;
 		}
 	}
-	public static ArrayList<Customer> readCustomerFromBinary(String fileName2){
+	public static ArrayList<Customer> readCustomerFromBinary(String fileName){
 		try {
-			ObjectInputStream ois = new ObjectInputStream(new FileInputStream(fileName2));
-			ArrayList<Customer> newResult = (ArrayList<Customer>)ois.readObject();
+			ObjectInputStream ois = new ObjectInputStream(new FileInputStream(fileName));
+			ArrayList<Customer> result = (ArrayList<Customer>)ois.readObject();
 			ois.close();
-			return newResult;
+			return result;
 		} catch (Exception ex) {
 			return null;
 		}
 	}
-	public static ArrayList<Customer> readCustomerFromXML(String fileName3){
+	public static ArrayList<Customer> readCustomerFromXML(String fileName){
 		try {
-			XMLDecoder dec = new XMLDecoder(new BufferedInputStream(new FileInputStream(fileName3)));
-			ArrayList<Customer> newResult = (ArrayList<Customer>)dec.readObject();
+			XMLDecoder dec = new XMLDecoder(new BufferedInputStream(new FileInputStream(fileName)));
+			ArrayList<Customer> result = (ArrayList<Customer>)dec.readObject();
 			dec.close();
-			return newResult;
+			return result;
 		} catch (Exception ex) {
 			return null;
 		}

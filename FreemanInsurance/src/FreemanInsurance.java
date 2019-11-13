@@ -37,7 +37,7 @@ public class FreemanInsurance {
 					printMenu();
 					choice = sc.nextInt();
 					if (choice == 1) {
-						System.out.println(CustomerReader.readCustomersFromTextFile(fileName));
+						CustomerWriter.writeCustomerToScreen(result);
 					} else if (choice == 2) {
 						CustomerReader.addMember(result);
 						System.out.println("They were added.");
@@ -77,7 +77,8 @@ public class FreemanInsurance {
 							} else if (choice3 == 2) {
 								System.out.println("Enter file name");
 								fileName = sc.next();
-							System.out.println(CustomerReader.readCustomerFromBinary(fileName));
+							ArrayList<Customer> readFromBin = CustomerReader.readCustomerFromBinary(fileName);
+							CustomerWriter.writeCustomerToScreen(readFromBin);
 							} else if (choice3 == 3) {
 								System.out.println("Enter file name");
 								fileName = sc.next();

@@ -1,7 +1,7 @@
 import java.io.*;
 import java.util.*;
 @SuppressWarnings("unused")
-public class Customer {
+public class Customer implements Serializable {
 	private String firstName, lastName, cancer, diabetes, alzheimers;
 	private int age, height, weight, sysBP, diaBP;
 	private ArrayList<Customer> result;

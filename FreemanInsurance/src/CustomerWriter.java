@@ -3,6 +3,11 @@ import java.beans.XMLEncoder;
 import java.io.*;
 import org.json.simple.*;
 public class CustomerWriter {
+	public static void writeCustomerToScreen(ArrayList<Customer> result) {
+		for (Customer c : result) {
+			System.out.println(c);
+		}
+	}
 	public static boolean writeCustomersToTextFile(String fileName, ArrayList<Customer> result) {
 		try {
 			PrintWriter pw = new PrintWriter(new BufferedWriter(new FileWriter(new File(fileName))));
