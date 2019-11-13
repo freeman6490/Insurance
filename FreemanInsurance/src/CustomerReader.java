@@ -2,6 +2,13 @@ import java.beans.XMLDecoder;
 import java.io.*;
 import java.util.*;
 public class CustomerReader {
+	/**
+	 * original file reader. opens up the file and seperates it. adds each part of the 
+	 * array to an arraylist using "fsc.next();"
+	 * then returns the new customer
+	 * @param fileName
+	 * @author luke freeman
+	 */
 	public static ArrayList<Customer> readCustomersFromTextFile(String fileName){
 		try {
 			ArrayList<Customer> result = new ArrayList<Customer>();
@@ -33,6 +40,11 @@ public class CustomerReader {
 			return null;
 		}
 	}
+	/**
+	 * reads customers in from a binary file and prints them in a human readable manner
+	 * @param fileName
+	 * @author luke freeman
+	 */
 	public static ArrayList<Customer> readCustomerFromBinary(String fileName){
 		try {
 			ObjectInputStream ois = new ObjectInputStream(new FileInputStream(fileName));
@@ -43,6 +55,12 @@ public class CustomerReader {
 			return null;
 		}
 	}
+	/**
+	 * reads cutomers in from an XML file. Needs array list and also a file name 
+	 * to do this. have to input XML decoder at the top.
+	 * @param fileName
+	 * @author luke freeman
+	 */
 	public static ArrayList<Customer> readCustomerFromXML(String fileName){
 		try {
 			XMLDecoder dec = new XMLDecoder(new BufferedInputStream(new FileInputStream(fileName)));
@@ -53,6 +71,12 @@ public class CustomerReader {
 			return null;
 		}
 	}
+	/**
+	 * let's the user enter their own member and then adds them to memory
+	 * option 2
+	 * @param result
+	 * @author luke freeman
+	 */
 		public static void addMember(ArrayList<Customer> result) {
 			Scanner sc = new Scanner (System.in);
 			System.out.println("Enter first name: ");

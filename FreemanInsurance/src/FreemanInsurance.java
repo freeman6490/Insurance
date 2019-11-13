@@ -85,7 +85,8 @@ public class FreemanInsurance {
 							System.out.println(CustomerReader.readCustomerFromXML(fileName));
 						}
 					} else if (choice == 5) {
-						
+						MemberAssessor memberAssessor = new MemberAssessor();
+						//ArrayList<Customer> customer = memberAssessor.memberAssessor(result);
 					} else if (choice == 6) {
 						System.out.println("Enter name of JSON file");
 						fileName = sc.next();

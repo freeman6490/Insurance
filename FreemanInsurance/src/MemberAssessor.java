@@ -1,5 +1,10 @@
 import java.io.*;
 import java.util.*;
+/**
+ * Member assessor which is used to decide whether a person can be insured
+ * or not, and also determines their risk level
+ * @author luke freeman
+ */
 public class MemberAssessor {
 	private static int total = 0;
 	private static int bmi = 0;
@@ -8,7 +13,7 @@ public class MemberAssessor {
 		bmi = (weight / (height * height)) * 703;
 		return bmi;
 	}
-	public static int memberAssessor(int age, int weight, int height, int sysBP, int diaBP, String cancer, String diabetes, String alzheimers) {
+	public static int calcTotalForAge(int age) {
 		if (age < 30) {
 			total = total;
 		}
@@ -20,15 +25,21 @@ public class MemberAssessor {
 		else {
 			total = total + 30;
 		}
-		if (bmi < 25) {
+		return total;
+	}
+	public static int findTotalForBmi(int bmi, int height, int weight) {
+		if (calcBmi(height, weight) < 25) {
 			total = total;
 		}
-		else if (bmi < 30) {
+		else if (calcBmi(height,weight) < 30) {
 			total = total + 30;
 		}
 		else {
 			total = total + 75;
 		}
+		return total;
+	}
+	public static int findTotalForSysBPAndDiaBP(int sysBP, int diaBP) {
 		if (sysBP < 120 && diaBP < 80) {
 			total = total;
 		} else if (sysBP < 139 && diaBP < 80) {
@@ -40,17 +51,26 @@ public class MemberAssessor {
 		} else {
 			total = total + 100;
 		}
+		return total;
+	}
+	public static int findTotalForCancer(String cancer) {
 		if (cancer == "n") {
 			total = total;
 		} else {
 			total = total + 10;
 		}
+		return total;
+	}
+	public static int findTotalForDiabetes(String diabetes) {
 		if (diabetes == "n") {
 			total = total;
 		}
 		else {
 			total = total + 10;
 		}
+		return total;
+	}
+	public static int findTotalForAlzheimers(String alzheimers) {	
 		if (alzheimers == "n") {
 			total = total;
 		}
@@ -58,7 +78,10 @@ public class MemberAssessor {
 			total = total + 10;
 		}
 		return total;
+	}
+	public static int memberAssessor(ArrayList<Customer> result) {
+		int finalTotal = 0;
+		calcTotalForAge(age);
 		
 	} 
-	
 }

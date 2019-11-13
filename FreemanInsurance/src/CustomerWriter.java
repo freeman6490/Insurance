@@ -3,11 +3,17 @@ import java.beans.XMLEncoder;
 import java.io.*;
 import org.json.simple.*;
 public class CustomerWriter {
+	/**
+	 * Will be used to write the customers to the screen when reading in from a text file, binary, etc.
+	 * @param result
+	 * @author luke freeman
+	 */
 	public static void writeCustomerToScreen(ArrayList<Customer> result) {
 		for (Customer c : result) {
 			System.out.println(c);
 		}
 	}
+	
 	public static boolean writeCustomersToTextFile(String fileName, ArrayList<Customer> result) {
 		try {
 			PrintWriter pw = new PrintWriter(new BufferedWriter(new FileWriter(new File(fileName))));
@@ -20,6 +26,14 @@ public class CustomerWriter {
 			return false;
 		}
 	}
+	/**
+	 * This writes the customers of an insurance company to a binary file
+	 * Uses a boolean function to return either true or false depending on
+	 * if the file can be transfered to binary successfully or not
+	 * @param fileName
+	 * @param result
+	 * @author luke freeman
+	 */
 	public static boolean writeCustomersToBinary(String fileName, ArrayList<Customer> result) {
 		try {
 			ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(fileName));
@@ -41,6 +55,15 @@ public class CustomerWriter {
 		}
 	}
 	@SuppressWarnings("unchecked")
+	/**
+	 * Writes customers to a JSON file, have to import "beans" above, also have
+	 * to link the correct jar file. 
+	 * 
+	 * Use class path to link jar file
+	 * @param fileName
+	 * @param result
+	 * @author luke freeman
+	 */
 	public static boolean writeCustomersToJSON(String fileName, ArrayList<Customer> result) {
 		try {
 			PrintWriter pw = new PrintWriter(new BufferedWriter(new FileWriter(fileName)));

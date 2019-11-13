@@ -78,6 +78,20 @@ public class Customer implements Serializable {
 		diabetes = "";
 		alzheimers = "";
 	}
+	/**
+	 * Constructor for a "customer" or "member"
+	 * @param firstName
+	 * @param lastName
+	 * @param age
+	 * @param height
+	 * @param weight
+	 * @param sysBP
+	 * @param diaBP
+	 * @param cancer
+	 * @param diabetes
+	 * @param alzheimers
+	 * @author luke freeman
+	 */
 	public Customer (String firstName, String lastName, int age, int height,
 			int weight, int sysBP, int diaBP, String cancer, String diabetes, String alzheimers) {
 		setFirstName(firstName);
@@ -91,6 +105,10 @@ public class Customer implements Serializable {
 		setDiabetes(diabetes);
 		setAlzheimers(alzheimers);
 	}
+	/**
+	 * toString which just helps to format and print things to the screen correctly
+	 * @author luke freeman
+	 */
 	@Override
 	public String toString() {
 		return String.format("%s %s %s %s %s %s %s %s %s %s\n", firstName, lastName, age, height, weight, sysBP, diaBP, cancer, diabetes, alzheimers);
