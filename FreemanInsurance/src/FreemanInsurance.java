@@ -56,13 +56,12 @@ public class FreemanInsurance {
 							System.out.println("Enter file name");
 							fileName = sc.next();
 							CustomerWriter.writeCustomersToBinary(fileName, result);
-								System.out.println("Members were written successfully.");
-							
-						} else if (choice2 == 3) {
+								System.out.println("Members were written successfully.");							
+						} else {
 							System.out.println("Enter file name");
 							fileName = sc.next();
 							CustomerWriter.writeCustomersToXML(fileName, result);
-							System.out.println("Members were written successfully.");
+								System.out.println("Members were written successfully.");
 							}
 					} else if (choice == 4) {
 						System.out.println("1. Text");

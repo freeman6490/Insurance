@@ -69,11 +69,11 @@ public class Customer implements Serializable {
 	public Customer() {
 		firstName = "";
 		lastName = "";
-		age = (Integer) null;
-		height = (Integer) null;
-		weight = (Integer) null;
-		sysBP = (Integer) null;
-		diaBP = (Integer) null;
+		age = 0;
+		height = 0;
+		weight = 0;
+		sysBP = 0;
+		diaBP = 0;
 		cancer = "";
 		diabetes = "";
 		alzheimers = "";

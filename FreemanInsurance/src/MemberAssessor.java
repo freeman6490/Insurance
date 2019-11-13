@@ -79,9 +79,8 @@ public class MemberAssessor {
 		}
 		return total;
 	}
-	public static int memberAssessor(ArrayList<Customer> result) {
-		int finalTotal = 0;
-		calcTotalForAge(age);
+	//public static int memberAssessor(ArrayList<Customer> result) {
+		//int finalTotal = 0;
+		//calcTotalForAge(age);
 		
 	} 
-}

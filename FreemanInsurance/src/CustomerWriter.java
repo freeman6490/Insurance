@@ -34,7 +34,8 @@ public class CustomerWriter {
 	 * @param result
 	 * @author luke freeman
 	 */
-	public static boolean writeCustomersToBinary(String fileName, ArrayList<Customer> result) {
+	public static boolean writeCustomersToBinary(String fileName, 
+			ArrayList<Customer> result) {
 		try {
 			ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(fileName));
 			oos.writeObject(result);;
@@ -44,7 +45,8 @@ public class CustomerWriter {
 			return false;
 		}
 	}
-	public static boolean writeCustomersToXML(String fileName, ArrayList<Customer> result) {
+	public static boolean writeCustomersToXML(String fileName, 
+			ArrayList<Customer> result) {
 		try {
 			XMLEncoder enc = new XMLEncoder(new BufferedOutputStream(new FileOutputStream(fileName)));
 			enc.writeObject(result);
