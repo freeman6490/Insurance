@@ -1,5 +1,3 @@
-import java.io.*;
-import java.util.*;
 /**
  * Member assessor which is used to decide whether a person can be insured
  * or not, and also determines their risk level
@@ -83,4 +81,8 @@ public class MemberAssessor {
 		//int finalTotal = 0;
 		//calcTotalForAge(age);
 		
+	//public static int calcTotal(calcTotalForAge(age),findTotalForBmi(bmi), findTotalForSysBPAndDiaBP(sysBP, diaBP),
+		//	findTotalForCancer(cancer), findTotalForDiabetes(diabetes), findTotalForAlzhemiers(alzheimers)) {
+		
+	}
 	} 

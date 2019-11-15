@@ -1,7 +1,7 @@
 import java.io.*;
 import java.util.*;
 @SuppressWarnings("unused")
-public class Customer implements Serializable {
+public class Member implements Serializable {
 	private String firstName, lastName, cancer, diabetes, alzheimers;
 	private int age, height, weight, sysBP, diaBP;
 	private ArrayList<Customer> result;
@@ -65,7 +65,7 @@ public class Customer implements Serializable {
 	public void setDiaBP(int diaBP) {
 		this.diaBP = diaBP;
 	}
-	public Customer() {
+	public Member() {
 		firstName = "";
 		lastName = "";
 		age = 0;
@@ -91,7 +91,7 @@ public class Customer implements Serializable {
 	 * @param alzheimers
 	 * @author luke freeman
 	 */
-	public Customer (String firstName, String lastName, int age, int height,
+	public Member (String firstName, String lastName, int age, int height,
 			int weight, int sysBP, int diaBP, String cancer, String diabetes, String alzheimers) {
 		setFirstName(firstName);
 		setLastName(lastName);
