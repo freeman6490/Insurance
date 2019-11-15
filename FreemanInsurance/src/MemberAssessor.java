@@ -11,7 +11,7 @@ public class MemberAssessor {
 		bmi = (weight / (height * height)) * 703;
 		return bmi;
 	}
-	public static int calcTotalForAge(int age) {
+	public static int findTotalScore(int age, int height, int weight, int sysBP, int diaBP, String cancer, String diabetes, String alzheimers) {
 		if (age < 30) {
 			total = total;
 		}
@@ -23,9 +23,6 @@ public class MemberAssessor {
 		else {
 			total = total + 30;
 		}
-		return total;
-	}
-	public static int findTotalForBmi(int bmi, int height, int weight) {
 		if (calcBmi(height, weight) < 25) {
 			total = total;
 		}
@@ -35,9 +32,6 @@ public class MemberAssessor {
 		else {
 			total = total + 75;
 		}
-		return total;
-	}
-	public static int findTotalForSysBPAndDiaBP(int sysBP, int diaBP) {
 		if (sysBP < 120 && diaBP < 80) {
 			total = total;
 		} else if (sysBP < 139 && diaBP < 80) {
@@ -49,26 +43,17 @@ public class MemberAssessor {
 		} else {
 			total = total + 100;
 		}
-		return total;
-	}
-	public static int findTotalForCancer(String cancer) {
 		if (cancer == "n") {
 			total = total;
 		} else {
 			total = total + 10;
 		}
-		return total;
-	}
-	public static int findTotalForDiabetes(String diabetes) {
 		if (diabetes == "n") {
 			total = total;
 		}
 		else {
 			total = total + 10;
-		}
-		return total;
-	}
-	public static int findTotalForAlzheimers(String alzheimers) {	
+		}	
 		if (alzheimers == "n") {
 			total = total;
 		}
@@ -77,12 +62,11 @@ public class MemberAssessor {
 		}
 		return total;
 	}
+}
 	//public static int memberAssessor(ArrayList<Customer> result) {
 		//int finalTotal = 0;
 		//calcTotalForAge(age);
 		
 	//public static int calcTotal(calcTotalForAge(age),findTotalForBmi(bmi), findTotalForSysBPAndDiaBP(sysBP, diaBP),
 		//	findTotalForCancer(cancer), findTotalForDiabetes(diabetes), findTotalForAlzhemiers(alzheimers)) {
-		
-	}
-	} 
+		 
