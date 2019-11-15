@@ -1,7 +1,7 @@
 
 public class InsuranceScore {
 	private int score, age, height, weight, sysBP, diaBP;
-	private String firstName, lastName, cancer, diabetes, alzheimers;
+	private String verdict, firstName, lastName, cancer, diabetes, alzheimers;
 	public void setFirstName(String firstName) {
 		this.firstName = firstName;
 	}
@@ -68,13 +68,20 @@ public class InsuranceScore {
 	public void setScore(int score) {
 		this.score = score;
 	}
-	public InsuranceScore(String firstName, String lastName, int score) {
+	public String getVerdict() {
+		return verdict;
+	}
+	public void setVerdict(String verdict) {
+		this.verdict = verdict;
+	}
+	public InsuranceScore(String firstName, String lastName, int score, String verdict) {
 		setFirstName(firstName);
 		setLastName(lastName);
 		setScore(score);
+		setVerdict(verdict);
 	}
 	@Override
 	public String toString() {
-		return String.format("%s %s is %s", firstName, lastName, score);
+		return String.format("%s %s has a score of %d, thus making them %s", firstName, lastName, score, verdict);
 	}
 }
