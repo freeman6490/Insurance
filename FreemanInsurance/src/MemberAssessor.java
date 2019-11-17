@@ -1,20 +1,20 @@
-import java.util.ArrayList;
-
 /**
  * Member assessor which is used to decide whether a person can be insured
  * or not, and also determines their risk level
  * @author luke freeman
  */
 public class MemberAssessor {
-	private static int total = 0;
+	private static int total = 0, age = 0, sysBP = 0, diaBP = 0, height = 0, weight = 0;
 	private static int finalTotal = 0;
+	private static double bmi = 0;
+	private static String dia = "", can = "", alz = "";
 	public static int findTotalAge(Customer member) {
-		int age = member.getAge();
-		if (age <= 29) {
+		age = member.getAge();		
+		if (age < 30) {
 			total = 0;
-		} else if (age <=45) {
+		} else if (age < 45) {
 			total = 10;
-		} else if (age <=60) {
+		} else if (age < 60) {
 			total = 20;
 		} else {
 			total = 30;
@@ -22,7 +22,7 @@ public class MemberAssessor {
 		return total;
 	}
 	public static int findTotalDia(Customer member) {
-		String dia = member.getDiabetes();
+		dia = member.getDiabetes();
 		if (dia.equals("n")) {
 			total = 0;
 		} else {
@@ -31,7 +31,7 @@ public class MemberAssessor {
 		return total;
 	}
 	public static int findTotalCan(Customer member) {
-		String can = member.getCancer();
+		can = member.getCancer();
 		if (can.equals("n")) {
 			total = 0;
 		} else {
@@ -40,7 +40,7 @@ public class MemberAssessor {
 		return total;
 	}
 	public static int findTotalAlz(Customer member) {
-		String alz = member.getAlzheimers();
+		alz = member.getAlzheimers();
 		if (alz.equals("n")) {
 			total = 0;
 		} else {
@@ -49,8 +49,8 @@ public class MemberAssessor {
 		return total;
 	}
 	public static int findTotalForBP(Customer member) {
-		int sysBP = member.getSysBP();
-		int diaBP = member.getDiaBP();
+		sysBP = member.getSysBP();
+		diaBP = member.getDiaBP();
 		if (sysBP < 120 && diaBP < 80) {
 			total = 0;
 		} else if (sysBP <= 129 && diaBP < 80) {
@@ -65,9 +65,16 @@ public class MemberAssessor {
 		return total;
 	}
 	public static int findTotalBmi(Customer member) {
-		int height = member.getHeight();
-		int weight = member.getWeight();
-		int bmi = (weight /(height * height)) * 703;
+		height = member.getHeight();
+		weight = member.getWeight();
+		double weight2 = weight / 2.2;
+		double height2 = height / 39.3;
+		//bmi = (height * height)/(weight * 703);
+		/*
+		 * for some reason, bmi doesn't work when calculated using 
+		 * inches and pounds, so moving to metric units. worked for others
+		 */
+		bmi = weight2 / (height2 * height2);
 		if (bmi >= 18.5 && bmi <= 24.9) {
 			total = 0;
 		} else if (bmi >= 25 && bmi <= 29.9) {
@@ -132,15 +139,8 @@ public class MemberAssessor {
 	}
 	*/
 	public static void findVerdict(Customer member) {
-		String verdict, stance;
-		int ageTotal = 0, diaTotal = 0, canTotal = 0, BPTotal = 0, alzTotal = 0, bmiTotal = 0;
-		ageTotal = findTotalAge(member);
-		diaTotal = findTotalDia(member);
-		canTotal = findTotalCan(member);
-		BPTotal = findTotalForBP(member);
-		alzTotal = findTotalAlz(member);
-		bmiTotal = findTotalBmi(member);
-		finalTotal = ageTotal + diaTotal + canTotal + BPTotal + alzTotal + bmiTotal;
+		String verdict = "", stance;
+		finalTotal = findTotalAge(member) + findTotalDia(member) + findTotalCan(member) + findTotalForBP(member) + findTotalAlz(member) + findTotalBmi(member);
 		if (finalTotal <= 20) {
 			stance = "low risk";
 			verdict = stance;
@@ -150,7 +150,7 @@ public class MemberAssessor {
 		} else if (finalTotal <= 75) {
 			stance = "high risk";
 			verdict = stance;
-		} else {
+		} else if (finalTotal > 75){
 			stance = "uninsurable";
 			verdict = stance;
 		}
@@ -158,6 +158,6 @@ public class MemberAssessor {
 		String lastName = member.getLastName();
 		System.out.printf("for %s %s\n", firstName, lastName);
 		System.out.printf("They had a score of %d\n", finalTotal);
-		System.out.printf("Which makes them %s", verdict);
+		System.out.printf("Which makes them %s\n", verdict);
 	}
 }

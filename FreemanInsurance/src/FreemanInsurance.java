@@ -32,14 +32,14 @@ public class FreemanInsurance {
 		String fileName2;
 		System.out.println("Enter name of file: ");
 		String fileName = sc.nextLine();
-		ArrayList<Customer> result = CustomerReader.readCustomersFromTextFile(fileName);
+		ArrayList<Customer> result = MemberReader.readCustomersFromTextFile(fileName);
 				do {
 					printMenu();
 					choice = sc.nextInt();
 					if (choice == 1) {
-						CustomerWriter.writeCustomerToScreen(result);
+						MemberWriter.writeCustomerToScreen(result);
 					} else if (choice == 2) {
-						CustomerReader.addMember(result);
+						MemberReader.addMember(result);
 						System.out.println("They were added.");
 					} else if (choice == 3) {
 						System.out.println("Enter your choice: ");
@@ -50,17 +50,17 @@ public class FreemanInsurance {
 						if (choice2 == 1) {
 							System.out.println("Enter file name");
 							fileName = sc.next();
-							CustomerWriter.writeCustomersToTextFile(fileName, result);
+							MemberWriter.writeCustomersToTextFile(fileName, result);
 								System.out.println("Members were written successfully.");
 						} else if (choice2 == 2) {
 							System.out.println("Enter file name");
 							fileName = sc.next();
-							CustomerWriter.writeCustomersToBinary(fileName, result);
+							MemberWriter.writeCustomersToBinary(fileName, result);
 								System.out.println("Members were written successfully.");							
 						} else {
 							System.out.println("Enter file name");
 							fileName = sc.next();
-							CustomerWriter.writeCustomersToXML(fileName, result);
+							MemberWriter.writeCustomersToXML(fileName, result);
 								System.out.println("Members were written successfully.");
 							}
 					} else if (choice == 4) {
@@ -72,24 +72,27 @@ public class FreemanInsurance {
 						if (choice3 == 1) {
 							System.out.println("Enter file name");
 							fileName = sc.next();
-							System.out.println(CustomerReader.readCustomersFromTextFile(fileName)); 
+							System.out.println(MemberReader.readCustomersFromTextFile(fileName)); 
 							} else if (choice3 == 2) {
 								System.out.println("Enter file name");
 								fileName = sc.next();
-							ArrayList<Customer> readFromBin = CustomerReader.readCustomerFromBinary(fileName);
-							CustomerWriter.writeCustomerToScreen(readFromBin);
+							ArrayList<Customer> readFromBin = MemberReader.readCustomerFromBinary(fileName);
+							MemberWriter.writeCustomerToScreen(readFromBin);
 							} else if (choice3 == 3) {
 								System.out.println("Enter file name");
 								fileName = sc.next();
-							System.out.println(CustomerReader.readCustomerFromXML(fileName));
+							System.out.println(MemberReader.readCustomerFromXML(fileName));
 						}
 					} else if (choice == 5) {
-						MemberAssessor memberAssessor = new MemberAssessor();
-						//ArrayList<Customer> customer = memberAssessor.memberAssessor(result);
+						for (Customer member : result) {
+							MemberAssessor.findVerdict(member);
+						}
 					} else if (choice == 6) {
 						System.out.println("Enter name of JSON file");
 						fileName = sc.next();
-						CustomerWriter.writeCustomersToJSON(fileName, result);
+						MemberWriter.writeCustomersToJSON(fileName, result);
+					} else {
+						System.out.println("Thanks for using. Goodbye.");
 					}
 				} while (choice != 7);
 			}
